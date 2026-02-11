@@ -40,6 +40,8 @@
             --gray-light: #e2e8f0;
             --white: #ffffff;
             --offwhite: #f1f5f9;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #128C7E;
             
             --gradient-primary: linear-gradient(135deg, #3b5bdb 0%, #2c3e9e 100%);
             --gradient-accent: linear-gradient(135deg, #fa5252 0%, #e03131 100%);
@@ -235,6 +237,14 @@
             transform: translateY(-2px);
         }
 
+        .btn-load-more i {
+            transition: var(--transition);
+        }
+
+        .btn-load-more:hover i {
+            transform: rotate(180deg);
+        }
+
         .dark-mode .btn-load-more {
             color: var(--dark-text);
             border-color: var(--primary);
@@ -245,15 +255,15 @@
             color: white;
         }
 
-        /* ===== HEADER ===== */
+        /* ===== HEADER - DESKTOP MENU FIXED ===== */
         header {
             position: fixed;
             top: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
+            width: 95%;
             max-width: 1400px;
-            padding: 1.2rem 2.5rem;
+            padding: 1rem 2rem;
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -281,20 +291,22 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            flex-shrink: 0;
         }
 
         .logo img {
-            width: 4.2rem;
-            height: 4.2rem;
+            width: 4rem;
+            height: 4rem;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--primary);
         }
 
         .logo-text h3 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--dark);
+            line-height: 1.2;
         }
 
         .dark-mode .logo-text h3 {
@@ -302,26 +314,39 @@
         }
 
         .logo-text p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gray);
+        }
+
+        /* ===== DESKTOP MENU - FIXED RAPI ===== */
+        .navbar {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
         }
 
         .navbar ul {
             display: flex;
             list-style: none;
-            gap: 0.5rem;
+            gap: 0.3rem;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .navbar ul li a {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            padding: 0.8rem 1.6rem;
-            font-size: 1.5rem;
+            gap: 0.5rem;
+            padding: 0.7rem 1.2rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: var(--dark);
             border-radius: var(--radius-full);
             transition: var(--transition);
+            white-space: nowrap;
         }
 
         .dark-mode .navbar ul li a {
@@ -329,7 +354,7 @@
         }
 
         .navbar ul li a i {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--primary);
         }
 
@@ -350,18 +375,19 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
+            flex-shrink: 0;
         }
 
         .theme-toggle {
-            width: 4rem;
-            height: 4rem;
+            width: 3.8rem;
+            height: 3.8rem;
             display: flex;
             align-items: center;
             justify-content: center;
             background: var(--gray-light);
             border-radius: 50%;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             color: var(--dark);
             cursor: pointer;
             transition: var(--transition);
@@ -379,31 +405,89 @@
         }
 
         .btn-consult {
-            padding: 0.8rem 2rem;
+            padding: 0.7rem 1.8rem;
             background: var(--gradient-primary);
             color: white;
             border-radius: var(--radius-full);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.7rem;
+            white-space: nowrap;
+        }
+
+        .btn-consult:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
         #menu {
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             color: var(--dark);
             cursor: pointer;
             display: none;
-            width: 4rem;
-            height: 4rem;
+            width: 3.8rem;
+            height: 3.8rem;
             align-items: center;
             justify-content: center;
             background: var(--gray-light);
             border-radius: 50%;
         }
 
-        /* ===== MOBILE MENU - FIXED ===== */
+        /* ===== DESKTOP MENU RESPONSIVE BREAKPOINTS ===== */
+        @media (max-width: 1300px) {
+            .navbar ul li a {
+                padding: 0.7rem 1rem;
+                font-size: 1.3rem;
+            }
+            
+            .btn-consult {
+                padding: 0.7rem 1.5rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .navbar ul li a {
+                padding: 0.6rem 0.9rem;
+                font-size: 1.25rem;
+            }
+            
+            .logo-text p {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .navbar ul li a span {
+                display: none;
+            }
+            
+            .navbar ul li a i {
+                font-size: 1.6rem;
+                margin: 0;
+            }
+            
+            .navbar ul li a {
+                padding: 0.7rem 1.1rem;
+            }
+            
+            .btn-consult span {
+                display: none;
+            }
+            
+            .btn-consult i {
+                margin: 0;
+                font-size: 1.6rem;
+            }
+            
+            .btn-consult {
+                padding: 0.7rem 1.1rem;
+            }
+        }
+
+        /* ===== MOBILE MENU ===== */
         @media (max-width: 991px) {
             #menu {
                 display: flex;
@@ -442,25 +526,33 @@
             .navbar ul {
                 flex-direction: column;
                 width: 100%;
-                gap: 1rem;
+                gap: 0.8rem;
             }
 
             .navbar ul li a {
                 width: 100%;
-                padding: 1.6rem 2rem;
+                padding: 1.4rem 1.8rem;
                 border-radius: var(--radius-md);
                 justify-content: flex-start;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 gap: 1.2rem;
             }
 
+            .navbar ul li a span {
+                display: inline-block;
+            }
+
             .navbar ul li a i {
-                width: 2.4rem;
-                font-size: 2rem;
+                width: 2.2rem;
+                font-size: 1.8rem;
             }
 
             .nav-actions .btn-consult {
                 display: none;
+            }
+            
+            .logo-text p {
+                display: block;
             }
         }
 
@@ -471,58 +563,28 @@
             
             .navbar {
                 top: 7rem;
-                padding: 1.8rem;
+                padding: 1.5rem;
             }
             
             .navbar ul li a {
-                padding: 1.4rem 1.8rem;
-                font-size: 1.7rem;
+                padding: 1.2rem 1.5rem;
+                font-size: 1.5rem;
             }
         }
 
-        /* ===== HERO SECTION - BADGE DIHAPUS ===== */
+        /* ===== HERO SECTION ===== */
         .home {
             min-height: 100vh;
             display: flex;
             align-items: center;
             background: var(--gradient-hero);
-            padding-top: 15rem;
+            padding-top: 12rem;
             position: relative;
             overflow: hidden;
         }
 
         .dark-mode .home {
             background: linear-gradient(135deg, #030614 0%, #0a0f1c 50%, #1a1f2e 100%);
-        }
-
-        .home::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.03" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            background-position: bottom;
-            opacity: 0.3;
-        }
-
-        .floating-elements span {
-            position: absolute;
-            display: block;
-            width: 6px;
-            height: 6px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            animation: floatParticle 20s infinite;
-        }
-
-        @keyframes floatParticle {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { opacity: 0; transform: translateY(-100px) translateX(50px); }
         }
 
         .home-container {
@@ -611,7 +673,6 @@
             line-height: 1.8;
         }
 
-        /* CTA Buttons */
         .home-cta {
             display: flex;
             flex-direction: row;
@@ -653,7 +714,6 @@
             border-color: white;
         }
 
-        /* Stats */
         .home-stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -755,7 +815,7 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* ===== HERO RESPONSIVE FIX ===== */
+        /* ===== HERO RESPONSIVE ===== */
         @media (max-width: 1200px) {
             .home-container {
                 grid-template-columns: 1fr;
@@ -784,28 +844,9 @@
             }
         }
 
-        @media (max-width: 991px) {
-            .home h1 {
-                font-size: 4.8rem;
-            }
-            
-            .static-text {
-                font-size: 2.2rem;
-            }
-            
-            .dynamic-text {
-                font-size: 2.4rem;
-                min-width: 180px;
-            }
-            
-            .home p {
-                font-size: 1.7rem;
-            }
-        }
-
         @media (max-width: 768px) {
             .home {
-                padding-top: 12rem;
+                padding-top: 10rem;
             }
             
             .home h1 {
@@ -863,10 +904,6 @@
                 min-width: 140px;
             }
             
-            .home p {
-                font-size: 1.5rem;
-            }
-            
             .home-stats {
                 gap: 1.5rem;
             }
@@ -877,7 +914,6 @@
             
             .stat-label {
                 font-size: 1.1rem;
-                letter-spacing: 0.5px;
             }
         }
 
@@ -1110,7 +1146,7 @@
             margin-top: auto;
         }
 
-        /* ===== PORTFOLIO SECTION - DENGAN LOAD MORE ===== */
+        /* ===== PORTFOLIO SECTION ===== */
         .portfolio {
             background: var(--white);
         }
@@ -1122,17 +1158,17 @@
         .portfolio-filter {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
             margin-bottom: 4rem;
             flex-wrap: wrap;
         }
 
         .filter-btn {
-            padding: 1rem 2.4rem;
+            padding: 0.8rem 2rem;
             background: transparent;
             border: 1px solid var(--gray-light);
             border-radius: var(--radius-full);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: var(--dark);
             cursor: pointer;
@@ -1177,16 +1213,30 @@
         }
 
         .portfolio-item {
-            position: relative;
+            background: white;
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow-lg);
-            aspect-ratio: 1 / 1;
-            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+            display: flex;
+            flex-direction: column;
         }
 
-        .portfolio-item.hidden {
-            display: none;
+        .dark-mode .portfolio-item {
+            background: var(--dark-bg);
+            border-color: var(--dark-border);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .portfolio-image-wrapper {
+            position: relative;
+            aspect-ratio: 16 / 12;
+            overflow: hidden;
         }
 
         .portfolio-image {
@@ -1196,70 +1246,688 @@
             transition: var(--transition-slow);
         }
 
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.3));
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 2rem;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-
         .portfolio-item:hover .portfolio-image {
             transform: scale(1.1);
         }
 
-        .portfolio-overlay h3 {
-            color: white;
+        .portfolio-info {
+            padding: 2rem;
+            background: white;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dark-mode .portfolio-info {
+            background: var(--dark-bg);
+        }
+
+        .portfolio-info h3 {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
-            transform: translateY(20px);
-            transition: var(--transition);
-        }
-
-        .portfolio-overlay p {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            transform: translateY(20px);
-            transition: var(--transition);
-        }
-
-        .portfolio-overlay .btn-small {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 0.6rem 1.5rem;
-            background: white;
             color: var(--dark);
-            border-radius: var(--radius-full);
-            font-size: 1.2rem;
-            font-weight: 600;
-            width: fit-content;
-            transform: translateY(20px);
-            transition: var(--transition);
         }
 
-        .portfolio-item:hover .portfolio-overlay h3,
-        .portfolio-item:hover .portfolio-overlay p,
-        .portfolio-item:hover .portfolio-overlay .btn-small {
-            transform: translateY(0);
+        .dark-mode .portfolio-info h3 {
+            color: var(--dark-text);
+        }
+
+        .portfolio-category {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .portfolio-category i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .portfolio-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .portfolio-actions .btn-small {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            font-size: 1.3rem;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-demo {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-demo:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-wa-order {
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+        }
+
+        .btn-wa-order:hover {
+            background: var(--whatsapp-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-wa-order i {
+            font-size: 1.4rem;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-info {
+                padding: 1.5rem;
+            }
+            
+            .portfolio-info h3 {
+                font-size: 1.6rem;
+            }
+            
+            .portfolio-category {
+                font-size: 1.2rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .portfolio-actions .btn-small {
+                padding: 0.7rem 1rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-info {
+                padding: 1.2rem;
+            }
+            
+            .portfolio-info h3 {
+                font-size: 1.4rem;
+            }
+            
+            .portfolio-actions {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .portfolio-actions .btn-small {
+                width: 100%;
+                padding: 0.8rem;
+            }
+        }
+
+        .portfolio-item.hidden {
+            display: none;
         }
 
         .load-more-container {
             display: flex;
             justify-content: center;
             margin-top: 4rem;
+        }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .products {
+            background: var(--offwhite);
+        }
+
+        .dark-mode .products {
+            background: var(--dark-bg);
+        }
+
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .products-filter-btn {
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--radius-full);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dark-mode .products-filter-btn {
+            color: var(--dark-text);
+            border-color: var(--dark-border);
+        }
+
+        .products-filter-btn.active,
+        .products-filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        .product-item {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dark-mode .product-item {
+            background: var(--dark-bg);
+            border-color: var(--dark-border);
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .product-image-wrapper {
+            position: relative;
+            aspect-ratio: 16 / 12;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+            opacity: 0.9;
+        }
+
+        .product-item:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 2rem;
+            background: white;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dark-mode .product-info {
+            background: var(--dark-bg);
+        }
+
+        .product-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .dark-mode .product-info h3 {
+            color: var(--dark-text);
+        }
+
+        .product-category {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-category i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-price span {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--gray);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .product-actions .btn-small {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            font-size: 1.3rem;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-demo-product {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-demo-product:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-buy {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-buy:hover {
+            background: var(--gradient-dark);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .product-info {
+                padding: 1.5rem;
+            }
+            
+            .product-info h3 {
+                font-size: 1.6rem;
+            }
+            
+            .product-category {
+                font-size: 1.2rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .product-price {
+                font-size: 1.6rem;
+            }
+            
+            .product-actions .btn-small {
+                padding: 0.7rem 1rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-info {
+                padding: 1.2rem;
+            }
+            
+            .product-info h3 {
+                font-size: 1.4rem;
+            }
+            
+            .product-price {
+                font-size: 1.5rem;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .product-actions .btn-small {
+                width: 100%;
+                padding: 0.8rem;
+            }
+        }
+
+        .product-item.hidden-product {
+            display: none;
+        }
+
+        .load-more-products-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 4rem;
+        }
+
+        .btn-load-more-products {
+            margin: 4rem auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.2rem 3rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-size: 1.6rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-load-more-products:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-load-more-products i {
+            transition: var(--transition);
+        }
+
+        .btn-load-more-products:hover i {
+            transform: rotate(180deg);
+        }
+
+        .dark-mode .btn-load-more-products {
+            color: var(--dark-text);
+            border-color: var(--primary);
+        }
+
+        .dark-mode .btn-load-more-products:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* ===== TESTIMONIAL SECTION ===== */
+        .testimonials {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode .testimonials {
+            background: linear-gradient(135deg, var(--dark-bg), var(--dark-card));
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 991px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 2rem;
+                padding-bottom: 2rem;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                grid-template-columns: unset;
+            }
+            
+            .testimonials-grid::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .testimonial-card {
+                flex: 0 0 85%;
+                scroll-snap-align: start;
+            }
+            
+            .testimonial-indicators {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+            
+            .testimonial-dot {
+                width: 1rem;
+                height: 1rem;
+                border-radius: 50%;
+                background: var(--gray-light);
+                transition: var(--transition);
+                cursor: pointer;
+            }
+            
+            .testimonial-dot.active {
+                background: var(--primary);
+                width: 2.5rem;
+                border-radius: 1rem;
+            }
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+            position: relative;
+        }
+
+        .dark-mode .testimonial-card {
+            background: var(--dark-card);
+            border-color: var(--dark-border);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 6rem;
+            color: var(--primary);
+            opacity: 0.1;
+            font-family: serif;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-avatar {
+            width: 7rem;
+            height: 7rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+
+        .testimonial-author h4 {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+
+        .dark-mode .testimonial-author h4 {
+            color: var(--dark-text);
+        }
+
+        .testimonial-author p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-rating {
+            color: #ffc107;
+            font-size: 1.4rem;
+            display: flex;
+            gap: 0.2rem;
+        }
+
+        .testimonial-content {
+            font-size: 1.5rem;
+            color: var(--dark-soft);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .dark-mode .testimonial-content {
+            color: var(--dark-text-light);
+        }
+
+        .testimonial-project {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(59, 91, 219, 0.1);
+            color: var(--primary);
+            border-radius: var(--radius-full);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .testimonial-indicators {
+            display: none;
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq {
+            background: var(--white);
+            position: relative;
+        }
+
+        .dark-mode .faq {
+            background: var(--dark-card);
+        }
+
+        .faq-grid {
+            max-width: 90rem;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+            cursor: pointer;
+        }
+
+        .dark-mode .faq-item {
+            background: var(--dark-bg);
+            border-color: var(--dark-border);
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .faq-question h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        .dark-mode .faq-question h3 {
+            color: var(--dark-text);
+        }
+
+        .faq-question i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 30rem;
+            margin-top: 2rem;
+            opacity: 1;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer p {
+            font-size: 1.6rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .dark-mode .faq-answer p {
+            color: var(--dark-text-light);
         }
 
         /* ===== CONTACT SECTION ===== */
@@ -1516,10 +2184,10 @@
         <div class="progress-bar" id="progressBar"></div>
     </div>
 
-    <!-- HEADER -->
+    <!-- HEADER - DESKTOP MENU RAPI -->
     <header>
         <div class="logo">
-            <img src="images/dafid.jpg" alt="Dafid SEO">
+            <img src="https://ui-avatars.com/api/?name=Dafid+SEO&background=3b5bdb&color=fff&size=80" alt="Dafid SEO">
             <div class="logo-text">
                 <h3>Dafid SEO</h3>
                 <p>Digital Creator</p>
@@ -1528,11 +2196,14 @@
 
         <nav class="navbar">
             <ul>
-                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#services"><i class="fas fa-code"></i> Layanan</a></li>
-                <li><a href="#pricing"><i class="fas fa-tags"></i> Harga</a></li>
-                <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
-                <li><a href="#contact"><i class="fas fa-phone-alt"></i> Kontak</a></li>
+                <li><a href="#home" class="active"><i class="fas fa-home"></i><span> Home</span></a></li>
+                <li><a href="#services"><i class="fas fa-code"></i><span> Layanan</span></a></li>
+                <li><a href="#pricing"><i class="fas fa-tags"></i><span> Harga</span></a></li>
+                <li><a href="#portfolio"><i class="fas fa-briefcase"></i><span> Portfolio</span></a></li>
+                <li><a href="#products"><i class="fas fa-boxes"></i><span> Products</span></a></li>
+                <li><a href="#testimonials"><i class="fas fa-star"></i><span> Testimoni</span></a></li>
+                <li><a href="#faq"><i class="fas fa-question-circle"></i><span> FAQ</span></a></li>
+                <li><a href="#contact"><i class="fas fa-phone-alt"></i><span> Kontak</span></a></li>
             </ul>
         </nav>
 
@@ -1541,14 +2212,14 @@
                 <i class="fas fa-moon"></i>
             </button>
             <a href="#contact" class="btn-consult">
-                <i class="fas fa-headset"></i> Konsultasi
+                <i class="fas fa-headset"></i><span> Konsultasi</span>
             </a>
         </div>
 
         <div id="menu" class="fas fa-bars"></div>
     </header>
 
-    <!-- HERO SECTION - BADGE DIHAPUS -->
+    <!-- HERO SECTION -->
     <section class="home" id="home">
         <div class="floating-elements">
             <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -1566,15 +2237,13 @@
                     <span class="dynamic-text" id="typewriter-text"></span>
                 </div>
                 
-                <p>Siap membantu Anda dari nol hingga online! 50+ project sukses, 30+ klien puas. Dapatkan website impian Anda sekarang juga dengan harga terjangkau.</p>
+                <p>Siap membantu Anda dari nol hingga online! 50+ project sukses, 30+ klien puas. Tersedia juga themes, plugin, software dan download tools berkualitas.</p>
                 
-                <!-- CTA 2 BUTTON -->
                 <div class="home-cta">
                     <a href="#portfolio" class="btn"><i class="fas fa-briefcase"></i> Lihat Portfolio</a>
-                    <a href="#pricing" class="btn btn-outline"><i class="fas fa-tags"></i> Lihat Harga</a>
+                    <a href="#products" class="btn btn-outline"><i class="fas fa-boxes"></i> Lihat Products</a>
                 </div>
 
-                <!-- STATS 4 KOLOM -->
                 <div class="home-stats">
                     <div class="stat-item">
                         <span class="stat-number">50+</span>
@@ -1655,7 +2324,7 @@
         </div>
     </section>
 
-    <!-- PRICING SECTION - 6 PAKET -->
+    <!-- PRICING SECTION -->
     <section class="pricing" id="pricing">
         <h1 class="heading" data-aos="fade-up">Harga <span>Transparan</span></h1>
         <p class="subheading" data-aos="fade-up">Pilih paket yang sesuai dengan kebutuhan dan budget Anda.</p>
@@ -1760,115 +2429,594 @@
         </div>
     </section>
 
-    <!-- PORTFOLIO SECTION - DENGAN LOAD MORE -->
+    <!-- PORTFOLIO SECTION - WEBSITE ONLY -->
     <section class="portfolio" id="portfolio">
-        <h1 class="heading" data-aos="fade-up">Portfolio <span>Terbaru</span></h1>
-        <p class="subheading" data-aos="fade-up">Beberapa project yang telah saya kerjakan.</p>
+        <h1 class="heading" data-aos="fade-up">Portfolio <span>Website</span></h1>
+        <p class="subheading" data-aos="fade-up">Project website yang telah saya kerjakan untuk berbagai klien.</p>
         
         <div class="portfolio-filter" data-aos="fade-up">
             <button class="filter-btn active" data-filter="all">Semua</button>
-            <button class="filter-btn" data-filter="company">Company</button>
-            <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
-            <button class="filter-btn" data-filter="news">News</button>
+            <button class="filter-btn" data-filter="news">News Portal</button>
             <button class="filter-btn" data-filter="education">Edukasi</button>
+            <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
         </div>
 
         <div class="portfolio-grid" id="portfolio-grid">
-            <!-- 6 ITEM AWAL -->
-            <div class="portfolio-item" data-category="company">
-                <img src="images/nadaindo.png" alt="Nadaindo" class="portfolio-image">
-                <div class="portfolio-overlay">
-                    <h3>Nadaindo</h3>
-                    <p>Company Profile</p>
-                    <a href="#" class="btn-small">Lihat <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="ecommerce">
-                <img src="images/sneakers.png" alt="Sneakersgood" class="portfolio-image">
-                <div class="portfolio-overlay">
-                    <h3>Sneakersgood</h3>
-                    <p>Toko Online</p>
-                    <a href="#" class="btn-small">Lihat <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+            <!-- ITEM 1: Batak Post -->
             <div class="portfolio-item" data-category="news">
-                <img src="images/kantongberita.png" alt="Kantongberita" class="portfolio-image">
-                <div class="portfolio-overlay">
-                    <h3>Kantongberita</h3>
-                    <p>Portal Berita</p>
-                    <a href="#" class="btn-small">Lihat <i class="fas fa-arrow-right"></i></a>
+                <div class="portfolio-image-wrapper">
+                    <img src="images/batakpost.jpg" alt="Batak Post" class="portfolio-image">
                 </div>
-            </div>
-            <div class="portfolio-item" data-category="company">
-                <img src="images/dafidpalevi.png" alt="DafidPalevi" class="portfolio-image">
-                <div class="portfolio-overlay">
-                    <h3>DafidPalevi</h3>
-                    <p>Portfolio</p>
-                    <a href="#" class="btn-small">Lihat <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="education">
-                <img src="images/dewatutor.png" alt="Dewatutor" class="portfolio-image">
-                <div class="portfolio-overlay">
-                    <h3>Dewatutor</h3>
-                    <p>Tutorial</p>
-                    <a href="#" class="btn-small">Lihat <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="portfolio-item" data-category="ecommerce">
-                <img src="images/vidcenzo.png" alt="Vidcenzo" class="portfolio-image">
-                <div class="portfolio-overlay">
-                    <h3>Vidcenzo</h3>
-                    <p>Video Platform</p>
-                    <a href="#" class="btn-small">Lihat <i class="fas fa-arrow-right"></i></a>
+                <div class="portfolio-info">
+                    <h3>Batak Post</h3>
+                    <div class="portfolio-category">
+                        <i class="fas fa-newspaper"></i> Portal Berita
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="https://batakpost.com/" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Batak%20Post%20(Portal%20Berita).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <!-- 3 ITEM LOAD MORE (HIDDEN) -->
-            <div class="portfolio-item hidden load-more-item" data-category="company">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&auto=format&fit=crop" alt="Metro26" class="portfolio-image">
-                <div class="portfolio-overlay">
+            <!-- ITEM 2: Kamus Pesisir -->
+            <div class="portfolio-item" data-category="education">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/kamus.jpg" alt="Kamus Pesisir" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Kamus Pesisir</h3>
+                    <div class="portfolio-category">
+                        <i class="fas fa-graduation-cap"></i> Edukasi
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="https://kamuspesisir.netlify.app/" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Kamus%20Pesisir%20(Edukasi).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ITEM 3: Beranda Sumut -->
+            <div class="portfolio-item" data-category="news">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/beranda.jpg" alt="Beranda Sumut" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Beranda Sumut</h3>
+                    <div class="portfolio-category">
+                        <i class="fas fa-newspaper"></i> Portal Berita
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="https://berandasumut.com/" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Beranda%20Sumut%20(Portal%20Berita).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ITEM 4: Foal News -->
+            <div class="portfolio-item" data-category="news">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/foal.jpg" alt="Foal News" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Foal News</h3>
+                    <div class="portfolio-category">
+                        <i class="fas fa-newspaper"></i> Portal Berita
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="http://foalnews.com/" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Foal%20News%20(Portal%20Berita).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ITEM 5: Dafid SEO Store -->
+            <div class="portfolio-item" data-category="ecommerce">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/digital.jpg" alt="Dafid SEO Store" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Dafid SEO Store</h3>
+                    <div class="portfolio-category">
+                        <i class="fas fa-store"></i> E-commerce
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="#" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Dafid%20SEO%20Store%20(E-commerce).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ITEM 6: TikTok Downloader -->
+            <div class="portfolio-item" data-category="ecommerce">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/tiktok.jpg" alt="TikTok Downloader" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
+                    <h3>TikTok Downloader</h3>
+                    <div class="portfolio-category">
+                        <i class="fas fa-download"></i> Download Tool
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="#" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20TikTok%20Downloader%20(Download%20Tool).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOAD MORE ITEMS -->
+            <div class="portfolio-item hidden load-more-item" data-category="news">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/beranda.jpg" alt="Metro26" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
                     <h3>Metro26</h3>
-                    <p>Media Online</p>
-                    <a href="#" class="btn-small">Lihat <i class="fas fa-arrow-right"></i></a>
+                    <div class="portfolio-category">
+                        <i class="fas fa-tv"></i> Media Online
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="#" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Metro26%20(Media%20Online).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
                 </div>
             </div>
+
             <div class="portfolio-item hidden load-more-item" data-category="ecommerce">
-                <img src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?w=500&auto=format&fit=crop" alt="BosDrama" class="portfolio-image">
-                <div class="portfolio-overlay">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/digital.jpg" alt="BosDrama" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
                     <h3>BosDrama</h3>
-                    <p>Drama Streaming</p>
-                    <a href="#" class="btn-small">Lihat <i class="fas fa-arrow-right"></i></a>
+                    <div class="portfolio-category">
+                        <i class="fas fa-film"></i> Drama Streaming
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="#" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20BosDrama%20(Drama%20Streaming).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
                 </div>
             </div>
+
             <div class="portfolio-item hidden load-more-item" data-category="education">
-                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&auto=format&fit=crop" alt="Animenonton" class="portfolio-image">
-                <div class="portfolio-overlay">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/kamus.jpg" alt="Animenonton" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
                     <h3>Animenonton</h3>
-                    <p>Anime Streaming</p>
-                    <a href="#" class="btn-small">Lihat <i class="fas fa-arrow-right"></i></a>
+                    <div class="portfolio-category">
+                        <i class="fas fa-play"></i> Anime Streaming
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="#" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Animenonton%20(Anime%20Streaming).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- LOAD MORE BUTTON - AKTIF DI ALL DEVICE -->
+        <!-- LOAD MORE BUTTON -->
         <div class="load-more-container">
             <button id="loadMoreBtn" class="btn-load-more">
-                <i class="fas fa-plus-circle"></i> Load More Portfolio
-                <span id="itemsCount">(6/9)</span>
+                <i class="fas fa-plus-circle"></i> Tampilkan Lebih Banyak
             </button>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION - THEMES, PLUGIN, SOFTWARE, DOWNLOAD -->
+    <section class="products" id="products">
+        <h1 class="heading" data-aos="fade-up">Digital <span>Products</span></h1>
+        <p class="subheading" data-aos="fade-up">Themes, Plugin, Software dan Download Tools berkualitas premium.</p>
+        
+        <div class="products-filter" data-aos="fade-up">
+            <button class="products-filter-btn active" data-filter="all">Semua</button>
+            <button class="products-filter-btn" data-filter="themes">Themes</button>
+            <button class="products-filter-btn" data-filter="plugin">Plugin</button>
+            <button class="products-filter-btn" data-filter="software">Software</button>
+            <button class="products-filter-btn" data-filter="download">Download</button>
+        </div>
+        
+        <div class="products-grid" id="products-grid">
+            <!-- PRODUCT 1: NewsPress Theme - Themes -->
+            <div class="product-item" data-category="themes">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=500&auto=format&fit=crop" alt="NewsPress Theme" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>NewsPress Theme</h3>
+                    <div class="product-category">
+                        <i class="fas fa-paint-brush"></i> WordPress Theme
+                    </div>
+                    <div class="product-price">
+                        Rp 499K <span>/ sekali bayar</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-small btn-demo-product" target="_blank">
+                            <i class="fas fa-eye"></i> Demo
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20product%20NewsPress%20Theme%20(WordPress%20Theme).%20Saya%20ingin%20membeli%20product%20ini." class="btn-small btn-buy" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT 2: SEO Plugin Pro - Plugin -->
+            <div class="product-item" data-category="plugin">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop" alt="SEO Plugin Pro" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>SEO Plugin Pro</h3>
+                    <div class="product-category">
+                        <i class="fas fa-plug"></i> WordPress Plugin
+                    </div>
+                    <div class="product-price">
+                        Rp 349K <span>/ tahun</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-small btn-demo-product" target="_blank">
+                            <i class="fas fa-eye"></i> Demo
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20product%20SEO%20Plugin%20Pro%20(WordPress%20Plugin).%20Saya%20ingin%20membeli%20product%20ini." class="btn-small btn-buy" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT 3: Video Editor Pro - Software -->
+            <div class="product-item" data-category="software">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&auto=format&fit=crop" alt="Video Editor Pro" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>Video Editor Pro</h3>
+                    <div class="product-category">
+                        <i class="fas fa-laptop-code"></i> Desktop Software
+                    </div>
+                    <div class="product-price">
+                        Rp 799K <span>/ lifetime</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-small btn-demo-product" target="_blank">
+                            <i class="fas fa-eye"></i> Demo
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20product%20Video%20Editor%20Pro%20(Desktop%20Software).%20Saya%20ingin%20membeli%20product%20ini." class="btn-small btn-buy" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT 4: YouTube Downloader - Download -->
+            <div class="product-item" data-category="download">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1599507593499-a3f7d7d97667?w=500&auto=format&fit=crop" alt="YouTube Downloader" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>YouTube Downloader</h3>
+                    <div class="product-category">
+                        <i class="fas fa-download"></i> Download Tool
+                    </div>
+                    <div class="product-price">
+                        Rp 199K <span>/ lifetime</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-small btn-demo-product" target="_blank">
+                            <i class="fas fa-eye"></i> Demo
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20product%20YouTube%20Downloader%20(Download%20Tool).%20Saya%20ingin%20membeli%20product%20ini." class="btn-small btn-buy" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOAD MORE PRODUCTS -->
+            <div class="product-item hidden-product load-more-product" data-category="themes">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=500&auto=format&fit=crop" alt="ShopEase Theme" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>ShopEase Theme</h3>
+                    <div class="product-category">
+                        <i class="fas fa-paint-brush"></i> WordPress Theme
+                    </div>
+                    <div class="product-price">
+                        Rp 599K <span>/ sekali bayar</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-small btn-demo-product" target="_blank">
+                            <i class="fas fa-eye"></i> Demo
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20product%20ShopEase%20Theme%20(WordPress%20Theme).%20Saya%20ingin%20membeli%20product%20ini." class="btn-small btn-buy" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item hidden-product load-more-product" data-category="plugin">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=500&auto=format&fit=crop" alt="SpeedCache" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>SpeedCache</h3>
+                    <div class="product-category">
+                        <i class="fas fa-plug"></i> WordPress Plugin
+                    </div>
+                    <div class="product-price">
+                        Rp 299K <span>/ tahun</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-small btn-demo-product" target="_blank">
+                            <i class="fas fa-eye"></i> Demo
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20product%20SpeedCache%20(WordPress%20Plugin).%20Saya%20ingin%20membeli%20product%20ini." class="btn-small btn-buy" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item hidden-product load-more-product" data-category="software">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=500&auto=format&fit=crop" alt="Photo Editor Pro" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>Photo Editor Pro</h3>
+                    <div class="product-category">
+                        <i class="fas fa-laptop-code"></i> Desktop Software
+                    </div>
+                    <div class="product-price">
+                        Rp 699K <span>/ lifetime</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-small btn-demo-product" target="_blank">
+                            <i class="fas fa-eye"></i> Demo
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20product%20Photo%20Editor%20Pro%20(Desktop%20Software).%20Saya%20ingin%20membeli%20product%20ini." class="btn-small btn-buy" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item hidden-product load-more-product" data-category="download">
+                <div class="product-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500&auto=format&fit=crop" alt="Instagram Downloader" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3>IG Downloader</h3>
+                    <div class="product-category">
+                        <i class="fas fa-download"></i> Download Tool
+                    </div>
+                    <div class="product-price">
+                        Rp 199K <span>/ lifetime</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-small btn-demo-product" target="_blank">
+                            <i class="fas fa-eye"></i> Demo
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20product%20IG%20Downloader%20(Download%20Tool).%20Saya%20ingin%20membeli%20product%20ini." class="btn-small btn-buy" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Beli
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOAD MORE PRODUCTS BUTTON -->
+        <div class="load-more-products-container">
+            <button id="loadMoreProductsBtn" class="btn-load-more-products">
+                <i class="fas fa-plus-circle"></i> Tampilkan Lebih Banyak Produk
+            </button>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL SECTION -->
+    <section class="testimonials" id="testimonials">
+        <h1 class="heading" data-aos="fade-up">Apa Kata <span>Klien</span></h1>
+        <p class="subheading" data-aos="fade-up">Mereka sudah merasakan manfaatnya. Giliran Anda!</p>
+        
+        <div class="testimonials-grid" id="testimonialsGrid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-quote">"</div>
+                <div class="testimonial-header">
+                    <img src="https://ui-avatars.com/api/?name=Budi+Santoso&background=3b5bdb&color=fff&size=80" alt="Budi Santoso" class="testimonial-avatar">
+                    <div class="testimonial-author">
+                        <h4>Budi Santoso</h4>
+                        <p>CEO, Batak Post</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    "Portal berita yang dibuat sangat cepat dan SEO friendly. Dalam 2 bulan sudah masuk halaman pertama Google. Traffic naik 300%!"
+                </div>
+                <span class="testimonial-project">News Portal</span>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-quote">"</div>
+                <div class="testimonial-header">
+                    <img src="https://ui-avatars.com/api/?name=Siti+Rahma&background=12b886&color=fff&size=80" alt="Siti Rahma" class="testimonial-avatar">
+                    <div class="testimonial-author">
+                        <h4>Siti Rahma</h4>
+                        <p>Owner, Kamus Pesisir</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    "Website edukasi yang dibuat sangat interaktif. Fitur pencarian kamus bahasa pesisir sangat cepat. Pengguna sangat puas!"
+                </div>
+                <span class="testimonial-project">Edukasi</span>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="testimonial-quote">"</div>
+                <div class="testimonial-header">
+                    <img src="https://ui-avatars.com/api/?name=Ahmad+Fauzi&background=fa5252&color=fff&size=80" alt="Ahmad Fauzi" class="testimonial-avatar">
+                    <div class="testimonial-author">
+                        <h4>Ahmad Fauzi</h4>
+                        <p>Founder, Beranda Sumut</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-content">
+                    "Proses cepat, komunikatif, dan hasilnya sesuai ekspektasi. Website media online kami jadi lebih modern dan banyak pengunjung baru."
+                </div>
+                <span class="testimonial-project">Media Online</span>
+            </div>
+        </div>
+
+        <!-- Indicator Dots untuk Mobile -->
+        <div class="testimonial-indicators" id="testimonialIndicators">
+            <span class="testimonial-dot active" data-index="0"></span>
+            <span class="testimonial-dot" data-index="1"></span>
+            <span class="testimonial-dot" data-index="2"></span>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq" id="faq">
+        <h1 class="heading" data-aos="fade-up">Frequently <span>Asked Questions</span></h1>
+        <p class="subheading" data-aos="fade-up">Pertanyaan yang sering diajukan klien sebelum order.</p>
+        
+        <div class="faq-grid">
+            <!-- FAQ 1 -->
+            <div class="faq-item active" data-aos="fade-up">
+                <div class="faq-question">
+                    <h3>Berapa lama proses pembuatan website?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Tergantung kompleksitas website. Landing page: 3-5 hari kerja. Company profile: 1-2 minggu. E-commerce: 2-4 minggu. Saya selalu memberikan timeline yang jelas di awal project.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item" data-aos="fade-up">
+                <div class="faq-question">
+                    <h3>Apakah domain & hosting sudah termasuk dalam harga?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Harga yang tercantum adalah biaya jasa pembuatan website. Domain dan hosting dapat diuruskan terpisah atau Anda bisa menyediakannya sendiri. Saya siap membantu pengurusan domain & hosting jika diperlukan.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item" data-aos="fade-up">
+                <div class="faq-question">
+                    <h3>Apakah website yang dibuat sudah mobile friendly?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>WAJIB! Semua website yang saya buat 100% responsive, tampil sempurna di semua device (desktop, tablet, smartphone). Saya selalu testing di berbagai ukuran layar sebelum launching.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item" data-aos="fade-up">
+                <div class="faq-question">
+                    <h3>Apakah bisa request fitur custom untuk themes/plugin?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sangat bisa! Untuk pembelian themes dan plugin, saya menyediakan layanan customisasi sesuai kebutuhan Anda. Biaya customisasi tergantung tingkat kesulitan.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item" data-aos="fade-up">
+                <div class="faq-question">
+                    <h3>Apakah ada garansi untuk produk digital?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Ya, semua produk digital (themes, plugin, software) mendapatkan garansi 30 hari untuk support dan update. Garansi bisa diperpanjang dengan biaya tahunan.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item" data-aos="fade-up">
+                <div class="faq-question">
+                    <h3>Bagaimana sistem pembayarannya?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sistem pembayaran: DP 50% di awal project, 50% setelah selesai dan sebelum launching. Untuk produk digital, pembayaran full di awal. Transfer ke rekening BCA/Mandiri/BNI.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- CONTACT SECTION -->
     <section class="contact" id="contact">
         <h1 class="heading" data-aos="fade-up">Hubungi <span>Saya</span></h1>
-        <p class="subheading" data-aos="fade-up">Free konsultasi 30 menit!</p>
+        <p class="subheading" data-aos="fade-up">Free konsultasi 30 menit! Diskusikan kebutuhan website atau produk digital Anda.</p>
         
         <div class="contact-container" data-aos="fade-up">
             <div class="contact-info">
                 <h3>Mari Bekerja Sama</h3>
-                <p style="font-size: 1.6rem; color: var(--gray); margin-bottom: 3rem;">Respon cepat via WhatsApp atau email.</p>
+                <p style="font-size: 1.6rem; color: var(--gray); margin-bottom: 3rem;">Respon cepat via WhatsApp atau email. Biasanya balas dalam 1-2 jam.</p>
                 
                 <div class="contact-details">
                     <div class="contact-detail-item">
@@ -1892,6 +3040,13 @@
                             <p>Sibolga, Sumatera Utara</p>
                         </div>
                     </div>
+                    <div class="contact-detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="contact-detail-text">
+                            <h4>Jam Operasional</h4>
+                            <p>Senin - Sabtu, 09:00 - 21:00</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1906,7 +3061,10 @@
                     <input type="text" placeholder="No. WhatsApp" required>
                 </div>
                 <div class="form-group">
-                    <textarea placeholder="Ceritakan kebutuhan website Anda..." required></textarea>
+                    <input type="text" placeholder="Perusahaan / Bisnis (opsional)">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Ceritakan kebutuhan Anda... (website, themes, plugin, software, deadline, budget)" required></textarea>
                 </div>
                 <button type="submit" class="btn" style="width: 100%;">Kirim Pesan <i class="fab fa-whatsapp"></i></button>
             </form>
@@ -1918,7 +3076,7 @@
         <div class="footer-content">
             <div class="footer-about">
                 <h3>Dafid SEO</h3>
-                <p>Front End Developer & Digital Creator. 8+ tahun membantu UMKM dan perusahaan memiliki website profesional.</p>
+                <p>Front End Developer & Digital Creator. 8+ tahun membantu UMKM dan perusahaan memiliki website profesional. Juga menyediakan themes, plugin, software dan download tools berkualitas premium dengan harga terjangkau.</p>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-tiktok"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1933,15 +3091,17 @@
                     <li><a href="#services"><i class="fas fa-chevron-right"></i> Toko Online</a></li>
                     <li><a href="#services"><i class="fas fa-chevron-right"></i> Portal Berita</a></li>
                     <li><a href="#services"><i class="fas fa-chevron-right"></i> Website Kursus</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Optimasi SEO</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Maintenance</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Menu</h4>
+                <h4>Produk</h4>
                 <ul>
-                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Layanan</a></li>
-                    <li><a href="#pricing"><i class="fas fa-chevron-right"></i> Harga</a></li>
-                    <li><a href="#portfolio"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+                    <li><a href="#products"><i class="fas fa-chevron-right"></i> WordPress Themes</a></li>
+                    <li><a href="#products"><i class="fas fa-chevron-right"></i> WordPress Plugin</a></li>
+                    <li><a href="#products"><i class="fas fa-chevron-right"></i> Desktop Software</a></li>
+                    <li><a href="#products"><i class="fas fa-chevron-right"></i> Download Tools</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -1949,12 +3109,13 @@
                 <ul>
                     <li><i class="fas fa-phone-alt"></i> +62 821 6488 9300</li>
                     <li><i class="fas fa-envelope"></i> brodafid@gmail.com</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Sibolga</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Sibolga, Sumut</li>
+                    <li><i class="fas fa-clock"></i> Senin - Sabtu, 09:00 - 21:00</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Dafid SEO. All rights reserved.</p>
+            <p>&copy; 2025 Dafid SEO. All rights reserved. Made with <span style="color: #ff6b6b;">❤️</span> for your business success.</p>
         </div>
     </footer>
 
@@ -2032,7 +3193,7 @@
         }
 
         $(document).ready(function() {
-            // MENU TOGGLE - FIXED
+            // MENU TOGGLE
             $('#menu').click(function() {
                 $(this).toggleClass('fa-times');
                 $('.navbar').toggleClass('active');
@@ -2059,6 +3220,20 @@
                     $('header').removeClass('sticky');
                     $('#scroll-top').removeClass('active');
                 }
+                
+                // Active menu based on scroll
+                const scrollPos = $(window).scrollTop();
+                
+                $('section').each(function() {
+                    const top = $(this).offset().top - 150;
+                    const bottom = top + $(this).outerHeight();
+                    const id = $(this).attr('id');
+                    
+                    if (scrollPos >= top && scrollPos <= bottom) {
+                        $('.navbar ul li a').removeClass('active');
+                        $('.navbar ul li a[href="#' + id + '"]').addClass('active');
+                    }
+                });
             });
 
             // SMOOTH SCROLL
@@ -2093,39 +3268,42 @@
                 });
             });
 
-            // LOAD MORE PORTFOLIO - BEKERJA DI SEMUA DEVICE
-            const totalItems = $('.load-more-item').length + 6; // 6 + 3 = 9
-            let currentVisible = 6;
-            
-            $('.load-more-item').addClass('hidden');
-            
-            function updateLoadMoreCounter() {
-                const visibleItems = $('.portfolio-item:not(.hidden)').length;
-                $('#itemsCount').text(`(${visibleItems}/${totalItems})`);
+            // PRODUCTS FILTER
+            $('.products-filter-btn').click(function() {
+                $('.products-filter-btn').removeClass('active');
+                $(this).addClass('active');
                 
-                if (visibleItems >= totalItems) {
-                    $('#loadMoreBtn').hide();
-                } else {
-                    $('#loadMoreBtn').show();
-                }
-            }
-            
-            updateLoadMoreCounter();
+                const filterValue = $(this).data('filter');
+                
+                $('.product-item').each(function() {
+                    if (!$(this).hasClass('hidden-product')) {
+                        if (filterValue === 'all') {
+                            $(this).show();
+                        } else {
+                            if ($(this).data('category') === filterValue) {
+                                $(this).show();
+                            } else {
+                                $(this).hide();
+                            }
+                        }
+                    }
+                });
+            });
+
+            // LOAD MORE PORTFOLIO
+            $('.load-more-item').addClass('hidden');
             
             $('#loadMoreBtn').click(function() {
                 const hiddenItems = $('.load-more-item.hidden');
                 
-                // Munculkan 3 item sekaligus
-                for (let i = 0; i < 3; i++) {
-                    if (hiddenItems[i]) {
-                        $(hiddenItems[i]).removeClass('hidden');
-                        currentVisible++;
-                    }
+                for (let i = 0; i < hiddenItems.length; i++) {
+                    $(hiddenItems[i]).removeClass('hidden');
                 }
                 
-                updateLoadMoreCounter();
+                if ($('.load-more-item.hidden').length === 0) {
+                    $('#loadMoreBtn').hide();
+                }
                 
-                // Re-apply filter
                 const activeFilter = $('.filter-btn.active').data('filter');
                 if (activeFilter !== 'all') {
                     $('.portfolio-item').each(function() {
@@ -2136,6 +3314,68 @@
                         }
                     });
                 }
+            });
+
+            // LOAD MORE PRODUCTS
+            $('.load-more-product').addClass('hidden-product');
+            
+            $('#loadMoreProductsBtn').click(function() {
+                const hiddenProducts = $('.load-more-product.hidden-product');
+                
+                for (let i = 0; i < hiddenProducts.length; i++) {
+                    $(hiddenProducts[i]).removeClass('hidden-product');
+                }
+                
+                if ($('.load-more-product.hidden-product').length === 0) {
+                    $('#loadMoreProductsBtn').hide();
+                }
+                
+                const activeFilter = $('.products-filter-btn.active').data('filter');
+                if (activeFilter !== 'all') {
+                    $('.product-item').each(function() {
+                        if (!$(this).hasClass('hidden-product')) {
+                            if ($(this).data('category') !== activeFilter) {
+                                $(this).hide();
+                            }
+                        }
+                    });
+                }
+            });
+
+            // TESTIMONIAL CAROUSEL
+            const testimonialsGrid = document.getElementById('testimonialsGrid');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            
+            if (testimonialsGrid) {
+                testimonialsGrid.addEventListener('scroll', function() {
+                    const scrollPosition = testimonialsGrid.scrollLeft;
+                    const itemWidth = testimonialsGrid.querySelector('.testimonial-card')?.offsetWidth || 0;
+                    const gap = 20;
+                    const activeIndex = Math.round(scrollPosition / (itemWidth + gap));
+                    
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === activeIndex);
+                    });
+                });
+            }
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    const itemWidth = testimonialsGrid.querySelector('.testimonial-card')?.offsetWidth || 0;
+                    const gap = 20;
+                    testimonialsGrid.scrollTo({
+                        left: index * (itemWidth + gap),
+                        behavior: 'smooth'
+                    });
+                    
+                    dots.forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+                });
+            });
+
+            // FAQ ACCORDION
+            $('.faq-item').click(function() {
+                $(this).toggleClass('active');
             });
 
             // Start typewriter

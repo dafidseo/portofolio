@@ -1422,7 +1422,7 @@
             border-color: var(--primary);
         }
 
-        /* ===== SEARCH BAR ===== */
+        /* ===== SEARCH BAR - RESPONSIVE ===== */
         .product-search-container {
             max-width: 600px;
             margin: 0 auto 3rem auto;
@@ -1430,9 +1430,10 @@
             align-items: center;
             background: var(--white);
             border-radius: var(--radius-full);
-            padding: 0.3rem 0.3rem 0.3rem 2rem;
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem;
             box-shadow: var(--shadow-md);
             border: 1px solid var(--gray-light);
+            gap: 0.5rem;
         }
 
         .dark-mode .product-search-container {
@@ -1441,18 +1442,20 @@
         }
 
         .product-search-container i {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--gray);
-            margin-right: 1rem;
+            flex-shrink: 0;
         }
 
         .product-search-container input {
             flex: 1;
             background: transparent;
             border: none;
-            padding: 1.2rem 0;
-            font-size: 1.6rem;
+            padding: 1rem 0;
+            font-size: 1.5rem;
             color: var(--dark);
+            min-width: 0; /* Penting untuk flex wrap */
+            width: 100%;
         }
 
         .dark-mode .product-search-container input {
@@ -1461,24 +1464,66 @@
 
         .product-search-container input::placeholder {
             color: var(--gray);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
 
         .product-search-container button {
             background: var(--gradient-primary);
             color: white;
             border: none;
-            padding: 1rem 2.5rem;
+            padding: 0.8rem 1.8rem;
             border-radius: var(--radius-full);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .product-search-container button:hover {
             background: var(--gradient-dark);
+        }
+
+        /* Responsive Search Bar untuk Mobile */
+        @media (max-width: 600px) {
+            .product-search-container {
+                flex-wrap: wrap;
+                padding: 1rem;
+                border-radius: 20px;
+                gap: 1rem;
+            }
+            
+            .product-search-container i {
+                display: none; /* Sembunyikan ikon di mobile */
+            }
+            
+            .product-search-container input {
+                width: 100%;
+                padding: 1rem 1.2rem;
+                font-size: 1.4rem;
+                border: 1px solid var(--gray-light);
+                border-radius: 30px;
+                background: var(--light);
+            }
+            
+            .product-search-container button {
+                width: 100%;
+                padding: 1.2rem;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .product-search-container input {
+                font-size: 1.3rem;
+                padding: 0.8rem 1rem;
+            }
+            
+            .product-search-container button {
+                padding: 1rem;
+                font-size: 1.4rem;
+            }
         }
 
         .products-grid {
@@ -1503,7 +1548,7 @@
         @media (max-width: 480px) {
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
+                gap: 1.2rem;
             }
         }
 
@@ -3034,10 +3079,10 @@
         <h1 class="heading" data-aos="fade-up">Digital <span>Products</span></h1>
         <p class="subheading" data-aos="fade-up">Themes, Plugin, Software dan Tools berkualitas premium.</p>
         
-        <!-- SEARCH BAR -->
+        <!-- SEARCH BAR - RESPONSIVE -->
         <div class="product-search-container" data-aos="fade-up">
             <i class="fas fa-search"></i>
-            <input type="text" id="productSearchInput" placeholder="Cari produk (misal: NewsPress, Video Editor...)">
+            <input type="text" id="productSearchInput" placeholder="Cari produk...">
             <button id="searchProductBtn">Cari</button>
         </div>
         

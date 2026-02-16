@@ -1454,7 +1454,7 @@
             padding: 1rem 0;
             font-size: 1.5rem;
             color: var(--dark);
-            min-width: 0; /* Penting untuk flex wrap */
+            min-width: 0;
             width: 100%;
         }
 
@@ -1495,7 +1495,7 @@
             }
             
             .product-search-container i {
-                display: none; /* Sembunyikan ikon di mobile */
+                display: none;
             }
             
             .product-search-container input {
@@ -4328,7 +4328,7 @@
             // Start typewriter
             startTypewriter();
 
-            // ===== SEARCH FUNCTIONALITY =====
+            // ===== SEARCH FUNCTIONALITY - FIXED =====
             function performProductSearch(term) {
                 const activeFilter = $('.products-filter-btn.active').data('filter');
                 
@@ -4339,30 +4339,44 @@
                     // Cek apakah produk sesuai dengan filter yang aktif
                     const matchesFilter = (activeFilter === 'all' || productCategory === activeFilter);
                     
-                    if (matchesFilter && productTitle.includes(term)) {
-                        $(this).show();
-                    } else if (matchesFilter) {
-                        $(this).hide();
+                    if (term === '') {
+                        // JIKA SEARCH TERM KOSONG, TAMPILKAN SEMUA PRODUK SESUAI FILTER
+                        if (matchesFilter) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
                     } else {
-                        // Jika tidak sesuai filter, sembunyikan (filter lebih dominan)
-                        $(this).hide();
+                        // JIKA ADA TEKS PENCARIAN, FILTER BERDASARKAN JUDUL
+                        if (matchesFilter && productTitle.includes(term)) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
                     }
                 });
             }
 
+            // Event ketika tombol Cari diklik
             $('#searchProductBtn').click(function() {
                 const searchTerm = $('#productSearchInput').val().toLowerCase().trim();
                 performProductSearch(searchTerm);
             });
 
+            // Event ketika mengetik di input (real-time)
+            $('#productSearchInput').on('input', function() {
+                const searchTerm = $(this).val().toLowerCase().trim();
+                performProductSearch(searchTerm);
+            });
+
+            // Event ketika tekan Enter
             $('#productSearchInput').keypress(function(e) {
                 if (e.which === 13) { // Enter key
+                    e.preventDefault(); // Mencegah form submit jika ada
                     const searchTerm = $(this).val().toLowerCase().trim();
                     performProductSearch(searchTerm);
                 }
             });
-
-            // Reset search ketika filter berubah (sudah dihandle di filter click)
         });
 
    // ===== FLASH SALE JAVASCRIPT =====

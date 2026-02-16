@@ -1422,6 +1422,65 @@
             border-color: var(--primary);
         }
 
+        /* ===== SEARCH BAR ===== */
+        .product-search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            border-radius: var(--radius-full);
+            padding: 0.3rem 0.3rem 0.3rem 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-light);
+        }
+
+        .dark-mode .product-search-container {
+            background: var(--dark-card);
+            border-color: var(--dark-border);
+        }
+
+        .product-search-container i {
+            font-size: 1.8rem;
+            color: var(--gray);
+            margin-right: 1rem;
+        }
+
+        .product-search-container input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 1.2rem 0;
+            font-size: 1.6rem;
+            color: var(--dark);
+        }
+
+        .dark-mode .product-search-container input {
+            color: var(--dark-text);
+        }
+
+        .product-search-container input::placeholder {
+            color: var(--gray);
+            font-size: 1.5rem;
+        }
+
+        .product-search-container button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: var(--radius-full);
+            font-size: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .product-search-container button:hover {
+            background: var(--gradient-dark);
+        }
+
         .products-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -2176,6 +2235,543 @@
             transform: translateY(-5px);
             box-shadow: var(--shadow-2xl);
         }
+
+       /* ===== FLASH SALE CSS - HORIZONTAL SCROLL 4 PRODUK ===== */
+.flash-sale {
+    padding: 30px 12px;
+    background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Header Flash Sale */
+.flash-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.flash-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flash-icon {
+    font-size: 28px;
+    animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.flash-title h2 {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #3b5bdb, #2c3e9e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+/* Timer Countdown - Biru */
+.flash-timer {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 40px;
+    box-shadow: 0 5px 15px rgba(59, 91, 219, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(59, 91, 219, 0.1);
+}
+
+.timer-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #3b5bdb;
+    white-space: nowrap;
+}
+
+.timer-boxes {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.timer-box {
+    background: linear-gradient(135deg, #3b5bdb, #2c3e9e);
+    padding: 4px 6px;
+    border-radius: 6px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.timer-box span:first-child {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+}
+
+.timer-box span:last-child {
+    display: block;
+    font-size: 7px;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.timer-separator {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3b5bdb;
+}
+
+/* Progress Bar Flash Sale - Biru */
+.flash-progress {
+    background: white;
+    padding: 15px 18px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(59, 91, 219, 0.08);
+    border: 1px solid rgba(59, 91, 219, 0.1);
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.stock-left {
+    color: #3b5bdb;
+}
+
+.sold-percentage {
+    color: #2c3e9e;
+}
+
+.progress-bar-flash {
+    height: 8px;
+    background: #e8ecf5;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b5bdb, #5c7cfa);
+    border-radius: 8px;
+    transition: width 0.3s ease;
+}
+
+/* WRAPPER untuk horizontal scroll */
+.flash-grid-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.flash-grid-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+/* GRID - Horizontal scroll */
+.flash-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 12px;
+    width: max-content;
+    padding: 5px 2px;
+}
+
+/* Card Produk - Lebar tetap untuk 4 produk dalam 1 layar */
+.flash-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(59, 91, 219, 0.08);
+    transition: all 0.2s ease;
+    position: relative;
+    border: 1px solid rgba(59, 91, 219, 0.15);
+    width: 160px; /* Lebar tetap untuk tampilan konsisten */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Untuk HP kecil, perkecil lebar card */
+@media (max-width: 400px) {
+    .flash-card {
+        width: 140px;
+    }
+}
+
+/* Untuk HP sangat kecil */
+@media (max-width: 340px) {
+    .flash-card {
+        width: 130px;
+    }
+}
+
+.flash-card:active {
+    transform: scale(0.98);
+    border-color: #3b5bdb;
+}
+
+/* Badge diskon biru */
+.card-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: linear-gradient(135deg, #3b5bdb, #2c3e9e);
+    color: white;
+    padding: 4px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(59, 91, 219, 0.3);
+    z-index: 2;
+}
+
+/* Gambar kecil */
+.card-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: #f5f9ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.flash-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+/* Konten card */
+.card-content {
+    padding: 10px 8px 12px 8px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-content h3 {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1e293b;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 31px;
+}
+
+/* Harga */
+.price-container {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+}
+
+.current-price {
+    font-size: 14px;
+    font-weight: 800;
+    color: #3b5bdb;
+}
+
+.original-price {
+    font-size: 10px;
+    color: #94a3b8;
+    text-decoration: line-through;
+}
+
+/* Stock info */
+.stock-info {
+    margin-bottom: 8px;
+}
+
+.stock-bar {
+    height: 3px;
+    background: #e8ecf5;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 2px;
+}
+
+.stock-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b5bdb, #5c7cfa);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.stock-text {
+    font-size: 8px;
+    color: #64748b;
+    display: block;
+    text-align: right;
+    font-weight: 500;
+}
+
+/* Button biru */
+.btn-flash-buy {
+    width: 100%;
+    padding: 8px 5px;
+    background: linear-gradient(135deg, #3b5bdb, #2c3e9e);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(59, 91, 219, 0.2);
+}
+
+.btn-flash-buy i {
+    font-size: 10px;
+}
+
+.btn-flash-buy:active {
+    background: linear-gradient(135deg, #2c3e9e, #1e2b7a);
+    transform: scale(0.95);
+    box-shadow: 0 1px 3px rgba(59, 91, 219, 0.3);
+}
+
+/* Indikator Scroll */
+.scroll-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.scroll-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    transition: all 0.3s ease;
+}
+
+.scroll-dot.active {
+    width: 20px;
+    background: #3b5bdb;
+    border-radius: 10px;
+}
+
+/* Toast Notification - Biru */
+.flash-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: white;
+    padding: 12px 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(59, 91, 219, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(150%);
+    transition: transform 0.3s ease;
+    z-index: 9999;
+    max-width: 350px;
+    margin: 0 auto;
+    border-left: 4px solid #3b5bdb;
+}
+
+.flash-toast.show {
+    transform: translateY(0);
+}
+
+.toast-icon {
+    width: 32px;
+    height: 32px;
+    background: #3b5bdb;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.toast-content {
+    flex: 1;
+}
+
+.toast-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 2px;
+}
+
+.toast-message {
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* Tablet - tetap horizontal scroll */
+@media (min-width: 600px) {
+    .flash-sale {
+        padding: 40px 20px;
+    }
+    
+    .flash-title h2 {
+        font-size: 28px;
+    }
+    
+    .flash-card {
+        width: 180px;
+    }
+}
+
+/* Desktop - tampil grid normal 4 kolom */
+@media (min-width: 900px) {
+    .flash-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Kembalikan ke grid normal di desktop */
+    .flash-grid-wrapper {
+        overflow-x: visible;
+    }
+    
+    .flash-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        width: 100%;
+    }
+    
+    .flash-card {
+        width: 100%; /* Full width di grid */
+    }
+    
+    .scroll-indicator {
+        display: none; /* Sembunyikan indikator di desktop */
+    }
+    
+    .flash-title h2 {
+        font-size: 32px;
+    }
+    
+    .timer-box {
+        min-width: 50px;
+        padding: 6px 8px;
+    }
+    
+    .timer-box span:first-child {
+        font-size: 18px;
+    }
+    
+    .timer-box span:last-child {
+        font-size: 9px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .flash-sale {
+        background: linear-gradient(135deg, #1a1f2e 0%, #0f1422 100%);
+    }
+    
+    .flash-timer,
+    .flash-progress,
+    .flash-card {
+        background: #242a3a;
+        border-color: #3b5bdb;
+    }
+    
+    .timer-label {
+        color: #5c7cfa;
+    }
+    
+    .card-content h3 {
+        color: #f1f5f9;
+    }
+    
+    .original-price {
+        color: #94a3b8;
+    }
+    
+    .stock-text {
+        color: #a0afc0;
+    }
+    
+    .flash-toast {
+        background: #242a3a;
+        border-left-color: #5c7cfa;
+    }
+    
+    .toast-title {
+        color: #f1f5f9;
+    }
+    
+    .toast-message {
+        color: #cbd5e1;
+    }
+    
+    .progress-bar-flash {
+        background: #334155;
+    }
+    
+    .stock-bar {
+        background: #334155;
+    }
+    
+    .scroll-dot {
+        background: #475569;
+    }
+    
+    .scroll-dot.active {
+        background: #5c7cfa;
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -2279,311 +2875,171 @@
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
-    <section class="services" id="services">
-        <h1 class="heading" data-aos="fade-up">Layanan <span>Unggulan</span></h1>
-        <p class="subheading" data-aos="fade-up">Solusi lengkap untuk kebutuhan digital Anda, dari landing page hingga e-commerce kompleks.</p>
-        
-        <div class="services-grid">
-            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-icon"><i class="fas fa-laptop"></i></div>
-                <h3>Company Profile</h3>
-                <p>Website profesional untuk memperkenalkan perusahaan Anda. Desain modern, responsif, SEO friendly.</p>
-                <a href="#pricing" class="service-link">Mulai 2,5JT <i class="fas fa-arrow-right"></i></a>
+   <!-- ===== FLASH SALE SECTION ===== -->
+<section class="flash-sale" id="flashSale">
+    <div class="container">
+        <!-- Header Flash Sale -->
+        <div class="flash-header">
+            <div class="flash-title">
+                <span class="flash-icon">🔥</span>
+                <h2>Flash Sale</h2>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="service-icon"><i class="fas fa-store"></i></div>
-                <h3>Toko Online</h3>
-                <p>E-commerce siap jualan dengan payment gateway, manajemen produk, dan laporan penjualan.</p>
-                <a href="#pricing" class="service-link">Mulai 3,5JT <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-icon"><i class="fas fa-newspaper"></i></div>
-                <h3>Portal Berita</h3>
-                <p>Website berita/media dengan CMS lengkap, manajemen konten, dan optimasi SEO traffic tinggi.</p>
-                <a href="#pricing" class="service-link">Mulai 4JT <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="250">
-                <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3>Website Kursus</h3>
-                <p>Platform belajar online dengan sistem membership, video pembelajaran, quiz interaktif.</p>
-                <a href="#pricing" class="service-link">Mulai 5JT <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>Optimasi SEO</h3>
-                <p>Buat website Anda muncul di halaman pertama Google. Riset keyword, backlink, konten.</p>
-                <a href="#pricing" class="service-link">Mulai 1,5JT <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="350">
-                <div class="service-icon"><i class="fas fa-headset"></i></div>
-                <h3>Maintenance</h3>
-                <p>Perawatan rutin, backup, update keamanan, dan support 24/7 untuk website Anda.</p>
-                <a href="#pricing" class="service-link">Mulai 500RB/bln <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRICING SECTION -->
-    <section class="pricing" id="pricing">
-        <h1 class="heading" data-aos="fade-up">Harga <span>Transparan</span></h1>
-        <p class="subheading" data-aos="fade-up">Pilih paket yang sesuai dengan kebutuhan dan budget Anda.</p>
-        
-        <div class="pricing-grid">
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="50">
-                <div class="pricing-header">
-                    <h3>Basic</h3>
-                    <div class="price">2,5JT <span>/project</span></div>
-                </div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> Landing Page</li>
-                    <li><i class="fas fa-check"></i> Desain Responsive</li>
-                    <li><i class="fas fa-check"></i> Form Contact</li>
-                    <li><i class="fas fa-check"></i> Basic SEO</li>
-                    <li><i class="fas fa-times"></i> CMS Dashboard</li>
-                    <li><i class="fas fa-times"></i> Maintenance</li>
-                </ul>
-                <a href="#contact" class="btn">Pilih Paket</a>
-            </div>
-
-            <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="100">
-                <div class="popular-badge">POPULER</div>
-                <div class="pricing-header">
-                    <h3>Business</h3>
-                    <div class="price">50JT <span>/project</span></div>
-                </div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> 5 Halaman</li>
-                    <li><i class="fas fa-check"></i> Desain Custom</li>
-                    <li><i class="fas fa-check"></i> CMS Dashboard</li>
-                    <li><i class="fas fa-check"></i> SEO Optimized</li>
-                    <li><i class="fas fa-check"></i> Integrasi Sosmed</li>
-                    <li><i class="fas fa-check"></i> 3 Bulan Maintenance</li>
-                </ul>
-                <a href="#contact" class="btn">Pilih Paket</a>
-            </div>
-
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="pricing-header">
-                    <h3>E-commerce</h3>
-                    <div class="price">100JT <span>/project</span></div>
-                </div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> Toko Online Full</li>
-                    <li><i class="fas fa-check"></i> Payment Gateway</li>
-                    <li><i class="fas fa-check"></i> Manajemen Produk</li>
-                    <li><i class="fas fa-check"></i> Laporan Penjualan</li>
-                    <li><i class="fas fa-check"></i> Advanced SEO</li>
-                    <li><i class="fas fa-check"></i> 6 Bulan Maintenance</li>
-                </ul>
-                <a href="#contact" class="btn">Pilih Paket</a>
-            </div>
-
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-header">
-                    <h3>News Portal</h3>
-                    <div class="price">6,5JT <span>/project</span></div>
-                </div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> Portal Berita</li>
-                    <li><i class="fas fa-check"></i> Manajemen Kategori</li>
-                    <li><i class="fas fa-check"></i> Multi Penulis</li>
-                    <li><i class="fas fa-check"></i> Iklan Siap Pasang</li>
-                    <li><i class="fas fa-check"></i> SEO News</li>
-                    <li><i class="fas fa-check"></i> 4 Bulan Maintenance</li>
-                </ul>
-                <a href="#contact" class="btn">Pilih Paket</a>
-            </div>
-
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="250">
-                <div class="pricing-header">
-                    <h3>LMS Course</h3>
-                    <div class="price">20JT <span>/project</span></div>
-                </div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> Platform Kursus</li>
-                    <li><i class="fas fa-check"></i> Video Streaming</li>
-                    <li><i class="fas fa-check"></i> Quiz & Sertifikat</li>
-                    <li><i class="fas fa-check"></i> Membership</li>
-                    <li><i class="fas fa-check"></i> Forum Diskusi</li>
-                    <li><i class="fas fa-check"></i> 6 Bulan Maintenance</li>
-                </ul>
-                <a href="#contact" class="btn">Pilih Paket</a>
-            </div>
-
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="pricing-header">
-                    <h3>Maintenance</h3>
-                    <div class="price">500RB <span>/bulan</span></div>
-                </div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> Update Keamanan</li>
-                    <li><i class="fas fa-check"></i> Backup Mingguan</li>
-                    <li><i class="fas fa-check"></i> Monitoring 24/7</li>
-                    <li><i class="fas fa-check"></i> Revisi Minor</li>
-                    <li><i class="fas fa-check"></i> Support Cepat</li>
-                    <li><i class="fas fa-check"></i> Laporan Bulanan</li>
-                </ul>
-                <a href="#contact" class="btn">Pilih Paket</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO SECTION - WEBSITE ONLY -->
-    <section class="portfolio" id="portfolio">
-        <h1 class="heading" data-aos="fade-up">Portfolio <span>Website</span></h1>
-        <p class="subheading" data-aos="fade-up">Project website yang telah saya kerjakan untuk berbagai klien.</p>
-        
-        <div class="portfolio-filter" data-aos="fade-up">
-            <button class="filter-btn active" data-filter="all">Semua</button>
-            <button class="filter-btn" data-filter="news">News Portal</button>
-            <button class="filter-btn" data-filter="education">Edukasi</button>
-            <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
-            <button class="filter-btn" data-filter="download">Download</button>
-        </div>
-
-        <div class="portfolio-grid" id="portfolio-grid">
-            <!-- ITEM 1: Batak Post -->
-            <div class="portfolio-item" data-category="news">
-                <div class="portfolio-image-wrapper">
-                    <img src="images/batakpost.jpg" alt="Batak Post" class="portfolio-image">
-                </div>
-                <div class="portfolio-info">
-                    <h3>Batak Post</h3>
-                    <div class="portfolio-category">
-                        <i class="fas fa-newspaper"></i> Portal Berita
-                    </div>
-                    <div class="portfolio-actions">
-                        <a href="https://batakpost.com/" class="btn-small btn-demo" target="_blank">
-                            <i class="fas fa-eye"></i> Lihat
-                        </a>
-                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Batak%20Post%20(Portal%20Berita).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Order
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ITEM 2: Kamus Pesisir -->
-            <div class="portfolio-item" data-category="education">
-                <div class="portfolio-image-wrapper">
-                    <img src="images/kamus.jpg" alt="Kamus Pesisir" class="portfolio-image">
-                </div>
-                <div class="portfolio-info">
-                    <h3>Kamus Pesisir</h3>
-                    <div class="portfolio-category">
-                        <i class="fas fa-graduation-cap"></i> Edukasi
-                    </div>
-                    <div class="portfolio-actions">
-                        <a href="https://kamuspesisir.netlify.app/" class="btn-small btn-demo" target="_blank">
-                            <i class="fas fa-eye"></i> Lihat
-                        </a>
-                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Kamus%20Pesisir%20(Edukasi).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Order
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ITEM 3: Beranda Sumut -->
-            <div class="portfolio-item" data-category="news">
-                <div class="portfolio-image-wrapper">
-                    <img src="images/beranda.jpg" alt="Beranda Sumut" class="portfolio-image">
-                </div>
-                <div class="portfolio-info">
-                    <h3>Beranda Sumut</h3>
-                    <div class="portfolio-category">
-                        <i class="fas fa-newspaper"></i> Portal Berita
-                    </div>
-                    <div class="portfolio-actions">
-                        <a href="https://berandasumut.com/" class="btn-small btn-demo" target="_blank">
-                            <i class="fas fa-eye"></i> Lihat
-                        </a>
-                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Beranda%20Sumut%20(Portal%20Berita).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Order
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ITEM 4: Foal News -->
-            <div class="portfolio-item" data-category="news">
-                <div class="portfolio-image-wrapper">
-                    <img src="images/foal.jpg" alt="Foal News" class="portfolio-image">
-                </div>
-                <div class="portfolio-info">
-                    <h3>Foal News</h3>
-                    <div class="portfolio-category">
-                        <i class="fas fa-newspaper"></i> Portal Berita
-                    </div>
-                    <div class="portfolio-actions">
-                        <a href="http://foalnews.com/" class="btn-small btn-demo" target="_blank">
-                            <i class="fas fa-eye"></i> Lihat
-                        </a>
-                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Foal%20News%20(Portal%20Berita).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Order
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ITEM 5: Dafid SEO Store -->
-            <div class="portfolio-item" data-category="ecommerce">
-                <div class="portfolio-image-wrapper">
-                    <img src="images/digital.jpg" alt="Dafid SEO Store" class="portfolio-image">
-                </div>
-                <div class="portfolio-info">
-                    <h3>Dafid SEO Store</h3>
-                    <div class="portfolio-category">
-                        <i class="fas fa-store"></i> E-commerce
-                    </div>
-                    <div class="portfolio-actions">
-                        <a href="https://produkdigitalku.netlify.app/" class="btn-small btn-demo" target="_blank">
-                            <i class="fas fa-eye"></i> Lihat
-                        </a>
-                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Dafid%20SEO%20Store%20(E-commerce).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Order
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ITEM 6: TikTok Downloader -->
-            <div class="portfolio-item" data-category="download">
-                <div class="portfolio-image-wrapper">
-                    <img src="images/tiktok.jpg" alt="TikTok Downloader" class="portfolio-image">
-                </div>
-                <div class="portfolio-info">
-                    <h3>TikTok Downloader</h3>
-                    <div class="portfolio-category">
-                        <i class="fas fa-download"></i> Download Tool
-                    </div>
-                    <div class="portfolio-actions">
-                        <a href="https://downloadstiktok.netlify.app/" class="btn-small btn-demo" target="_blank">
-                            <i class="fas fa-eye"></i> Lihat
-                        </a>
-                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20TikTok%20Downloader%20(Download%20Tool).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Order
-                        </a>
-                    </div>
-                </div>
-            </div>
-
             
+            <!-- Timer Countdown -->
+            <div class="flash-timer">
+                <div class="timer-label">Berakhir:</div>
+                <div class="timer-boxes" id="countdownTimer">
+                    <div class="timer-box">
+                        <span id="hours">00</span>
+                        <span>Jam</span>
+                    </div>
+                    <span class="timer-separator">:</span>
+                    <div class="timer-box">
+                        <span id="minutes">00</span>
+                        <span>Menit</span>
+                    </div>
+                    <span class="timer-separator">:</span>
+                    <div class="timer-box">
+                        <span id="seconds">00</span>
+                        <span>Detik</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- LOAD MORE BUTTON -->
-        <div class="load-more-container">
-            <button id="loadMoreBtn" class="btn-load-more">
-                <i class="fas fa-plus-circle"></i> Tampilkan Lebih Banyak
-            </button>
+        <!-- Progress Bar Flash Sale -->
+        <div class="flash-progress">
+            <div class="progress-info">
+                <span class="stock-left">🔥 15 produk tersisa</span>
+                <span class="sold-percentage">80% Terjual</span>
+            </div>
+            <div class="progress-bar-flash">
+                <div class="progress-fill" style="width: 80%"></div>
+            </div>
         </div>
-    </section>
+
+        <!-- 4 Produk dalam 1 Baris (Horizontal Scroll) -->
+        <div class="flash-grid-wrapper">
+            <div class="flash-grid" id="flashGrid">
+                <!-- Produk 1: Kamera -->
+                <div class="flash-card" data-discount="35">
+                    <div class="card-badge">-35%</div>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=150&auto=format" alt="Kamera Polaroid">
+                    </div>
+                    <div class="card-content">
+                        <h3>Kamera Polaroid</h3>
+                        <div class="price-container">
+                            <div class="current-price">Rp389k</div>
+                            <div class="original-price">Rp599k</div>
+                        </div>
+                        <div class="stock-info">
+                            <div class="stock-bar">
+                                <div class="stock-fill" style="width: 65%"></div>
+                            </div>
+                            <span class="stock-text">Sisa 5</span>
+                        </div>
+                        <button class="btn-flash-buy" onclick="buyProduct('Kamera Polaroid')">
+                            <i class="fas fa-shopping-cart"></i> Beli
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 2: Headphone -->
+                <div class="flash-card" data-discount="50">
+                    <div class="card-badge">-50%</div>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&auto=format" alt="Headphone">
+                    </div>
+                    <div class="card-content">
+                        <h3>Headphone Pro</h3>
+                        <div class="price-container">
+                            <div class="current-price">Rp449k</div>
+                            <div class="original-price">Rp899k</div>
+                        </div>
+                        <div class="stock-info">
+                            <div class="stock-bar">
+                                <div class="stock-fill" style="width: 25%"></div>
+                            </div>
+                            <span class="stock-text">Sisa 2</span>
+                        </div>
+                        <button class="btn-flash-buy" onclick="buyProduct('Headphone Pro')">
+                            <i class="fas fa-shopping-cart"></i> Beli
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 3: Smart Watch -->
+                <div class="flash-card" data-discount="40">
+                    <div class="card-badge">-40%</div>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&auto=format" alt="Jam Tangan">
+                    </div>
+                    <div class="card-content">
+                        <h3>Smart Watch</h3>
+                        <div class="price-container">
+                            <div class="current-price">Rp599k</div>
+                            <div class="original-price">Rp999k</div>
+                        </div>
+                        <div class="stock-info">
+                            <div class="stock-bar">
+                                <div class="stock-fill" style="width: 45%"></div>
+                            </div>
+                            <span class="stock-text">Sisa 4</span>
+                        </div>
+                        <button class="btn-flash-buy" onclick="buyProduct('Smart Watch')">
+                            <i class="fas fa-shopping-cart"></i> Beli
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 4: Parfum -->
+                <div class="flash-card" data-discount="30">
+                    <div class="card-badge">-30%</div>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=150&auto=format" alt="Parfum">
+                    </div>
+                    <div class="card-content">
+                        <h3>Parfum Premium</h3>
+                        <div class="price-container">
+                            <div class="current-price">Rp279k</div>
+                            <div class="original-price">Rp399k</div>
+                        </div>
+                        <div class="stock-info">
+                            <div class="stock-bar">
+                                <div class="stock-fill" style="width: 80%"></div>
+                            </div>
+                            <span class="stock-text">Sisa 7</span>
+                        </div>
+                        <button class="btn-flash-buy" onclick="buyProduct('Parfum Premium')">
+                            <i class="fas fa-shopping-cart"></i> Beli
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Indikator Scroll (opsional) -->
+        <div class="scroll-indicator">
+            <span class="scroll-dot active"></span>
+            <span class="scroll-dot"></span>
+            <span class="scroll-dot"></span>
+        </div>
+    </div>
+</section>
+
 
     <!-- PRODUCTS SECTION - THEMES, PLUGIN, SOFTWARE, DOWNLOAD -->
     <section class="products" id="products">
         <h1 class="heading" data-aos="fade-up">Digital <span>Products</span></h1>
         <p class="subheading" data-aos="fade-up">Themes, Plugin, Software dan Tools berkualitas premium.</p>
+        
+        <!-- SEARCH BAR -->
+        <div class="product-search-container" data-aos="fade-up">
+            <i class="fas fa-search"></i>
+            <input type="text" id="productSearchInput" placeholder="Cari produk (misal: NewsPress, Video Editor...)">
+            <button id="searchProductBtn">Cari</button>
+        </div>
         
         <div class="products-filter" data-aos="fade-up">
             <button class="products-filter-btn active" data-filter="all">Semua</button>
@@ -2979,6 +3435,308 @@
             </button>
         </div>
     </section>
+
+     <!-- PORTFOLIO SECTION - WEBSITE ONLY -->
+     <section class="portfolio" id="portfolio">
+        <h1 class="heading" data-aos="fade-up">Portfolio <span>Website</span></h1>
+        <p class="subheading" data-aos="fade-up">Project website yang telah saya kerjakan untuk berbagai klien.</p>
+        
+        <div class="portfolio-filter" data-aos="fade-up">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="news">News Portal</button>
+            <button class="filter-btn" data-filter="education">Edukasi</button>
+            <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+            <button class="filter-btn" data-filter="download">Download</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolio-grid">
+            <!-- ITEM 1: Batak Post -->
+            <div class="portfolio-item" data-category="news">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/batakpost.jpg" alt="Batak Post" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Batak Post</h3>
+                    <div class="portfolio-category">
+                        <i class="fas fa-newspaper"></i> Portal Berita
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="https://batakpost.com/" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Batak%20Post%20(Portal%20Berita).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ITEM 2: Kamus Pesisir -->
+            <div class="portfolio-item" data-category="education">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/kamus.jpg" alt="Kamus Pesisir" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Kamus Pesisir</h3>
+                    <div class="portfolio-category">
+                        <i class="fas fa-graduation-cap"></i> Edukasi
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="https://kamuspesisir.netlify.app/" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Kamus%20Pesisir%20(Edukasi).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ITEM 3: Beranda Sumut -->
+            <div class="portfolio-item" data-category="news">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/beranda.jpg" alt="Beranda Sumut" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Beranda Sumut</h3>
+                    <div class="portfolio-category">
+                        <i class="fas fa-newspaper"></i> Portal Berita
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="https://berandasumut.com/" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Beranda%20Sumut%20(Portal%20Berita).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ITEM 4: Foal News -->
+            <div class="portfolio-item" data-category="news">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/foal.jpg" alt="Foal News" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Foal News</h3>
+                    <div class="portfolio-category">
+                        <i class="fas fa-newspaper"></i> Portal Berita
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="http://foalnews.com/" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Foal%20News%20(Portal%20Berita).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ITEM 5: Dafid SEO Store -->
+            <div class="portfolio-item" data-category="ecommerce">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/digital.jpg" alt="Dafid SEO Store" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Dafid SEO Store</h3>
+                    <div class="portfolio-category">
+                        <i class="fas fa-store"></i> E-commerce
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="https://produkdigitalku.netlify.app/" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20Dafid%20SEO%20Store%20(E-commerce).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ITEM 6: TikTok Downloader -->
+            <div class="portfolio-item" data-category="download">
+                <div class="portfolio-image-wrapper">
+                    <img src="images/tiktok.jpg" alt="TikTok Downloader" class="portfolio-image">
+                </div>
+                <div class="portfolio-info">
+                    <h3>TikTok Downloader</h3>
+                    <div class="portfolio-category">
+                        <i class="fas fa-download"></i> Download Tool
+                    </div>
+                    <div class="portfolio-actions">
+                        <a href="https://downloadstiktok.netlify.app/" class="btn-small btn-demo" target="_blank">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        <a href="https://wa.me/6282164889300?text=Halo%20Dafid%20SEO%2C%20saya%20tertarik%20dengan%20portfolio%20TikTok%20Downloader%20(Download%20Tool).%20Saya%20ingin%20order%20project%20serupa." class="btn-small btn-wa-order" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+
+        <!-- LOAD MORE BUTTON -->
+        <div class="load-more-container">
+            <button id="loadMoreBtn" class="btn-load-more">
+                <i class="fas fa-plus-circle"></i> Tampilkan Lebih Banyak
+            </button>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <h1 class="heading" data-aos="fade-up">Layanan <span>Unggulan</span></h1>
+        <p class="subheading" data-aos="fade-up">Solusi lengkap untuk kebutuhan digital Anda, dari landing page hingga e-commerce kompleks.</p>
+        
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon"><i class="fas fa-laptop"></i></div>
+                <h3>Company Profile</h3>
+                <p>Website profesional untuk memperkenalkan perusahaan Anda. Desain modern, responsif, SEO friendly.</p>
+                <a href="#pricing" class="service-link">Mulai 2,5JT <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="service-icon"><i class="fas fa-store"></i></div>
+                <h3>Toko Online</h3>
+                <p>E-commerce siap jualan dengan payment gateway, manajemen produk, dan laporan penjualan.</p>
+                <a href="#pricing" class="service-link">Mulai 3,5JT <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon"><i class="fas fa-newspaper"></i></div>
+                <h3>Portal Berita</h3>
+                <p>Website berita/media dengan CMS lengkap, manajemen konten, dan optimasi SEO traffic tinggi.</p>
+                <a href="#pricing" class="service-link">Mulai 4JT <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Website Kursus</h3>
+                <p>Platform belajar online dengan sistem membership, video pembelajaran, quiz interaktif.</p>
+                <a href="#pricing" class="service-link">Mulai 5JT <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Optimasi SEO</h3>
+                <p>Buat website Anda muncul di halaman pertama Google. Riset keyword, backlink, konten.</p>
+                <a href="#pricing" class="service-link">Mulai 1,5JT <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="350">
+                <div class="service-icon"><i class="fas fa-headset"></i></div>
+                <h3>Maintenance</h3>
+                <p>Perawatan rutin, backup, update keamanan, dan support 24/7 untuk website Anda.</p>
+                <a href="#pricing" class="service-link">Mulai 500RB/bln <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="pricing" id="pricing">
+        <h1 class="heading" data-aos="fade-up">Harga <span>Transparan</span></h1>
+        <p class="subheading" data-aos="fade-up">Pilih paket yang sesuai dengan kebutuhan dan budget Anda.</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="pricing-header">
+                    <h3>Basic</h3>
+                    <div class="price">2,5JT <span>/project</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Landing Page</li>
+                    <li><i class="fas fa-check"></i> Desain Responsive</li>
+                    <li><i class="fas fa-check"></i> Form Contact</li>
+                    <li><i class="fas fa-check"></i> Basic SEO</li>
+                    <li><i class="fas fa-times"></i> CMS Dashboard</li>
+                    <li><i class="fas fa-times"></i> Maintenance</li>
+                </ul>
+                <a href="#contact" class="btn">Pilih Paket</a>
+            </div>
+
+            <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="100">
+                <div class="popular-badge">POPULER</div>
+                <div class="pricing-header">
+                    <h3>Business</h3>
+                    <div class="price">50JT <span>/project</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 5 Halaman</li>
+                    <li><i class="fas fa-check"></i> Desain Custom</li>
+                    <li><i class="fas fa-check"></i> CMS Dashboard</li>
+                    <li><i class="fas fa-check"></i> SEO Optimized</li>
+                    <li><i class="fas fa-check"></i> Integrasi Sosmed</li>
+                    <li><i class="fas fa-check"></i> 3 Bulan Maintenance</li>
+                </ul>
+                <a href="#contact" class="btn">Pilih Paket</a>
+            </div>
+
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="pricing-header">
+                    <h3>E-commerce</h3>
+                    <div class="price">100JT <span>/project</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Toko Online Full</li>
+                    <li><i class="fas fa-check"></i> Payment Gateway</li>
+                    <li><i class="fas fa-check"></i> Manajemen Produk</li>
+                    <li><i class="fas fa-check"></i> Laporan Penjualan</li>
+                    <li><i class="fas fa-check"></i> Advanced SEO</li>
+                    <li><i class="fas fa-check"></i> 6 Bulan Maintenance</li>
+                </ul>
+                <a href="#contact" class="btn">Pilih Paket</a>
+            </div>
+
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="pricing-header">
+                    <h3>News Portal</h3>
+                    <div class="price">6,5JT <span>/project</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Portal Berita</li>
+                    <li><i class="fas fa-check"></i> Manajemen Kategori</li>
+                    <li><i class="fas fa-check"></i> Multi Penulis</li>
+                    <li><i class="fas fa-check"></i> Iklan Siap Pasang</li>
+                    <li><i class="fas fa-check"></i> SEO News</li>
+                    <li><i class="fas fa-check"></i> 4 Bulan Maintenance</li>
+                </ul>
+                <a href="#contact" class="btn">Pilih Paket</a>
+            </div>
+
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="pricing-header">
+                    <h3>LMS Course</h3>
+                    <div class="price">20JT <span>/project</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Platform Kursus</li>
+                    <li><i class="fas fa-check"></i> Video Streaming</li>
+                    <li><i class="fas fa-check"></i> Quiz & Sertifikat</li>
+                    <li><i class="fas fa-check"></i> Membership</li>
+                    <li><i class="fas fa-check"></i> Forum Diskusi</li>
+                    <li><i class="fas fa-check"></i> 6 Bulan Maintenance</li>
+                </ul>
+                <a href="#contact" class="btn">Pilih Paket</a>
+            </div>
+
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="pricing-header">
+                    <h3>Maintenance</h3>
+                    <div class="price">500RB <span>/bulan</span></div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Update Keamanan</li>
+                    <li><i class="fas fa-check"></i> Backup Mingguan</li>
+                    <li><i class="fas fa-check"></i> Monitoring 24/7</li>
+                    <li><i class="fas fa-check"></i> Revisi Minor</li>
+                    <li><i class="fas fa-check"></i> Support Cepat</li>
+                    <li><i class="fas fa-check"></i> Laporan Bulanan</li>
+                </ul>
+                <a href="#contact" class="btn">Pilih Paket</a>
+            </div>
+        </div>
+    </section>
+
 
     <!-- TESTIMONIAL SECTION -->
     <section class="testimonials" id="testimonials">
@@ -3418,6 +4176,12 @@
                         }
                     }
                 });
+
+                // Setelah filter, jalankan pencarian jika ada teks di search input
+                const searchTerm = $('#productSearchInput').val().toLowerCase().trim();
+                if (searchTerm !== '') {
+                    performProductSearch(searchTerm);
+                }
             });
 
             // LOAD MORE PORTFOLIO
@@ -3472,6 +4236,12 @@
                         }
                     });
                 }
+
+                // Terapkan pencarian jika ada teks di search input
+                const searchTerm = $('#productSearchInput').val().toLowerCase().trim();
+                if (searchTerm !== '') {
+                    performProductSearch(searchTerm);
+                }
             });
 
             // TESTIMONIAL CAROUSEL
@@ -3512,7 +4282,276 @@
 
             // Start typewriter
             startTypewriter();
+
+            // ===== SEARCH FUNCTIONALITY =====
+            function performProductSearch(term) {
+                const activeFilter = $('.products-filter-btn.active').data('filter');
+                
+                $('.product-item').each(function() {
+                    const productTitle = $(this).find('h3').text().toLowerCase();
+                    const productCategory = $(this).data('category');
+                    
+                    // Cek apakah produk sesuai dengan filter yang aktif
+                    const matchesFilter = (activeFilter === 'all' || productCategory === activeFilter);
+                    
+                    if (matchesFilter && productTitle.includes(term)) {
+                        $(this).show();
+                    } else if (matchesFilter) {
+                        $(this).hide();
+                    } else {
+                        // Jika tidak sesuai filter, sembunyikan (filter lebih dominan)
+                        $(this).hide();
+                    }
+                });
+            }
+
+            $('#searchProductBtn').click(function() {
+                const searchTerm = $('#productSearchInput').val().toLowerCase().trim();
+                performProductSearch(searchTerm);
+            });
+
+            $('#productSearchInput').keypress(function(e) {
+                if (e.which === 13) { // Enter key
+                    const searchTerm = $(this).val().toLowerCase().trim();
+                    performProductSearch(searchTerm);
+                }
+            });
+
+            // Reset search ketika filter berubah (sudah dihandle di filter click)
         });
+
+   // ===== FLASH SALE JAVASCRIPT =====
+
+// Data produk
+const flashProducts = [
+    {
+        id: 1,
+        name: 'Kamera Polaroid',
+        currentPrice: 389000,
+        originalPrice: 599000,
+        stock: 5,
+        discount: 35,
+        image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=150&auto=format'
+    },
+    {
+        id: 2,
+        name: 'Headphone Pro',
+        currentPrice: 449000,
+        originalPrice: 899000,
+        stock: 2,
+        discount: 50,
+        image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=150&auto=format'
+    },
+    {
+        id: 3,
+        name: 'Smart Watch',
+        currentPrice: 599000,
+        originalPrice: 999000,
+        stock: 4,
+        discount: 40,
+        image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=150&auto=format'
+    },
+    {
+        id: 4,
+        name: 'Parfum Premium',
+        currentPrice: 279000,
+        originalPrice: 399000,
+        stock: 7,
+        discount: 30,
+        image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=150&auto=format'
+    }
+];
+
+// ===== COUNTDOWN TIMER =====
+function startCountdown(hours = 23, minutes = 59, seconds = 59) {
+    const now = new Date();
+    const countDownDate = new Date();
+    countDownDate.setHours(now.getHours() + hours);
+    countDownDate.setMinutes(now.getMinutes() + minutes);
+    countDownDate.setSeconds(now.getSeconds() + seconds);
+
+    function updateTimer() {
+        const currentTime = new Date().getTime();
+        const distance = countDownDate - currentTime;
+
+        if (distance < 0) {
+            document.getElementById('hours').innerHTML = '00';
+            document.getElementById('minutes').innerHTML = '00';
+            document.getElementById('seconds').innerHTML = '00';
+            showToast('⏰', 'Flash Sale Berakhir', 'Tunggu flash sale berikutnya!');
+            return;
+        }
+
+        const hoursRemaining = Math.floor(distance / (1000 * 60 * 60));
+        const minutesRemaining = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const secondsRemaining = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('hours').innerHTML = String(hoursRemaining).padStart(2, '0');
+        document.getElementById('minutes').innerHTML = String(minutesRemaining).padStart(2, '0');
+        document.getElementById('seconds').innerHTML = String(secondsRemaining).padStart(2, '0');
+    }
+
+    updateTimer();
+    return setInterval(updateTimer, 1000);
+}
+
+// ===== TOAST NOTIFICATION =====
+function showToast(icon, title, message) {
+    let toast = document.querySelector('.flash-toast');
+    
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'flash-toast';
+        document.body.appendChild(toast);
+    }
+    
+    toast.innerHTML = `
+        <div class="toast-icon">${icon}</div>
+        <div class="toast-content">
+            <div class="toast-title">${title}</div>
+            <div class="toast-message">${message}</div>
+        </div>
+    `;
+    
+    toast.offsetHeight;
+    toast.classList.add('show');
+    
+    if (window.toastTimeout) {
+        clearTimeout(window.toastTimeout);
+    }
+    
+    window.toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2500);
+}
+
+// ===== FUNCTION BELI PRODUK =====
+window.buyProduct = function(productName) {
+    const product = flashProducts.find(p => p.name === productName);
+    
+    if (product) {
+        if (product.stock > 0) {
+            product.stock--;
+            updateStockUI(product);
+            showToast('✅', 'Berhasil!', `${productName} + keranjang`);
+            updateTotalStock();
+        } else {
+            showToast('❌', 'Stok Habis', 'Produk sudah habis');
+        }
+    }
+};
+
+// ===== UPDATE STOCK UI =====
+function updateStockUI(product) {
+    const cards = document.querySelectorAll('.flash-card');
+    
+    cards.forEach(card => {
+        const title = card.querySelector('h3').textContent;
+        if (title === product.name) {
+            const stockText = card.querySelector('.stock-text');
+            const stockFill = card.querySelector('.stock-fill');
+            
+            if (stockText) {
+                stockText.textContent = `Sisa ${product.stock}`;
+            }
+            
+            const totalStock = 10;
+            const sold = totalStock - product.stock;
+            const percentage = (sold / totalStock) * 100;
+            if (stockFill) {
+                stockFill.style.width = `${percentage}%`;
+            }
+        }
+    });
+}
+
+// ===== UPDATE TOTAL STOCK =====
+function updateTotalStock() {
+    const totalSold = flashProducts.reduce((acc, curr) => {
+        const totalPerProduct = 10;
+        return acc + (totalPerProduct - curr.stock);
+    }, 0);
+    
+    const totalStock = 40;
+    const percentage = (totalSold / totalStock) * 100;
+    
+    const progressFill = document.querySelector('.progress-fill');
+    const stockLeft = document.querySelector('.stock-left');
+    
+    if (progressFill) {
+        progressFill.style.width = `${percentage}%`;
+    }
+    
+    if (stockLeft) {
+        const remaining = totalStock - totalSold;
+        stockLeft.textContent = `🔥 ${remaining} produk tersisa`;
+    }
+}
+
+// ===== SCROLL INDICATOR =====
+function initScrollIndicator() {
+    const gridWrapper = document.querySelector('.flash-grid-wrapper');
+    const dots = document.querySelectorAll('.scroll-dot');
+    
+    if (!gridWrapper || dots.length === 0) return;
+    
+    gridWrapper.addEventListener('scroll', function() {
+        const scrollLeft = this.scrollLeft;
+        const maxScroll = this.scrollWidth - this.clientWidth;
+        const scrollPercentage = (scrollLeft / maxScroll) * 100;
+        
+        // Aktifkan dot berdasarkan posisi scroll
+        if (scrollPercentage < 30) {
+            dots[0].classList.add('active');
+            dots[1].classList.remove('active');
+            dots[2].classList.remove('active');
+        } else if (scrollPercentage < 70) {
+            dots[0].classList.remove('active');
+            dots[1].classList.add('active');
+            dots[2].classList.remove('active');
+        } else {
+            dots[0].classList.remove('active');
+            dots[1].classList.remove('active');
+            dots[2].classList.add('active');
+        }
+    });
+}
+
+// ===== ANIMASI MASUK =====
+function animateCards() {
+    const cards = document.querySelectorAll('.flash-card');
+    
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(15px)';
+        card.style.transition = 'all 0.3s ease';
+        
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 70 * index);
+    });
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', function() {
+    window.timerInterval = startCountdown(23, 59, 59);
+    animateCards();
+    initScrollIndicator();
+    
+    if (!document.querySelector('link[href*="font-awesome"]')) {
+        const faLink = document.createElement('link');
+        faLink.rel = 'stylesheet';
+        faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(faLink);
+    }
+    
+    window.addEventListener('beforeunload', function() {
+        if (window.timerInterval) {
+            clearInterval(window.timerInterval);
+        }
+    });
+});
     </script>
 </body>
 </html>
